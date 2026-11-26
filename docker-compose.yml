@@ -1,0 +1,15 @@
+services:
+  quicklink:
+    build: .
+    container_name: quicklink-app
+    ports:
+      - "8080:8080"
+    volumes:
+      - quicklink_data:/data
+    environment:
+      - PORT=8080
+      - DATA_FILE=/data/urls.json
+    restart: unless-stopped
+
+volumes:
+  quicklink_data:
