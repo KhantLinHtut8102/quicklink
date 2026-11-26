@@ -64,3 +64,14 @@ User Browser ──(HTTPS)──▶ Cloudflare Edge (TLS + DDoS)
 
 ## 6. Lesson Learned
 Initially keeping state locally and forgetting to bind the `URLS` KV namespace before deploying caused lost links and runtime errors (`env.URLS` undefined). Moving all persistent data into external Cloudflare KV and verifying bindings before deployment reinforced why cloud compute must always remain stateless.
+
+---
+
+## 7. Running Locally with Docker
+For local development and portability, QuickLink can also be run inside a Docker container using `Dockerfile` and `docker-compose.yml` (with a persistent Docker volume for storage):
+
+```bash
+docker compose up --build
+```
+
+Once running, open **http://localhost:8080** in your browser.
