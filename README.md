@@ -17,6 +17,7 @@
 ---
 
 ## 2. System Architecture
+
 ```text
 User Browser ──(HTTPS)──▶ Cloudflare Edge (TLS + DDoS)
                                 │
@@ -27,6 +28,8 @@ User Browser ──(HTTPS)──▶ Cloudflare Edge (TLS + DDoS)
                          (Binding: env.URLS)
                                 ▼
                        Cloudflare KV (Managed Storage: URLS)
+```
+
 * **Stateless Compute (`worker.js`):** Serves the web UI, handles `POST /shorten` to generate 6-character codes, and performs `302` redirects.
 * **External Storage (`URLS` KV Namespace):** Stores short-code-to-URL mappings outside the compute runtime so restarts never lose data.
 * **Orchestration Choice:** We chose serverless auto-scaling (Cloudflare Workers) over Kubernetes to avoid unnecessary cost and operational overhead for a 2-person team, while gaining **scale-to-zero** ($0 idle cost).
