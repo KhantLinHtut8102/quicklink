@@ -3,8 +3,8 @@
 **Live Deployment:** https://quicklink.khantlinhtut83.workers.dev/
 
 **Team Members:**
-* Khant Lin Htut
-* Ahmad Kadour
+* Khant Lin Htut(100004664)
+* Ahmad Kadour(100004098) 
 
 ---
 
